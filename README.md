@@ -1,1 +1,1 @@
-# dbms-lab-nosql # README oluşturdu
+# dbms-lab-nosql
