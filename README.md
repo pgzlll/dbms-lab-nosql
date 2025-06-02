@@ -47,13 +47,13 @@ Kodladığınız endpoint-leri test etmek için siege komutunu yükleyiniz. (100
 `sudo apt-get install siege`
 ```bash
     # Redis
-    siege -H "Accept: application/json" -c10 -r100 "http://localhost:8080/nosql-lab-rd/student_no=2025000001" > ~/redis.results
+    siege -H "Accept: application/json" -c10 -r100 "http://localhost:8080/nosql-lab-rd/student_no=2025000001" > ~/redis-siege.results
     
     # Hazelcast
-    siege -H "Accept: application/json" -c10 -r100 "http://localhost:8080/nosql-lab-hz/student_no=2025000001" > ~/hz.results
+    siege -H "Accept: application/json" -c10 -r100 "http://localhost:8080/nosql-lab-hz/student_no=2025000001" > ~/hz-siege.results
 
     # MongoDB
-    siege -H "Accept: application/json" -c10 -r100 "http://localhost:8080/nosql-lab-mon/student_no=2025000001" > ~/mongodb.results
+    siege -H "Accept: application/json" -c10 -r100 "http://localhost:8080/nosql-lab-mon/student_no=2025000001" > ~/mongodb-siege.results
 ```
 Sonuçlar standart çıkışa değil `*.results` isimli dosyalara bastırabilir. Sonuçları bu dosyalardan alıp, raporunuza ekleyebilirsiniz.
 
@@ -80,11 +80,11 @@ Rapora eklenecek sonuçlar:
 \
 Koşum zamanı testi:
 ```bash
-    time seq 1 100 | xargs -n1 -P10 -I{} curl -s "http://localhost:8080/nosql-lab-rd/student_no=2025000001" > ~/redis.results
+    time seq 1 100 | xargs -n1 -P10 -I{} curl -s "http://localhost:8080/nosql-lab-rd/student_no=2025000001" > ~/redis-time.results
 
-    time seq 1 100 | xargs -n1 -P10 -I{} curl -s "http://localhost:8080/nosql-lab-rd/student_no=2025000001" > ~/hz.results
+    time seq 1 100 | xargs -n1 -P10 -I{} curl -s "http://localhost:8080/nosql-lab-rd/student_no=2025000001" > ~/hz-time.results
 
-    time seq 1 100 | xargs -n1 -P10 -I{} curl -s "http://localhost:8080/nosql-lab-mon/student_no=2025000001" > ~/mongodb.results
+    time seq 1 100 | xargs -n1 -P10 -I{} curl -s "http://localhost:8080/nosql-lab-mon/student_no=2025000001" > ~/mongodb-time.results
 ```
 ```
     Execution time:               0.xxxx
