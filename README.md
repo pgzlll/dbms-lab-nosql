@@ -90,6 +90,7 @@ Koşum zamanı testi:
     Execution time:               0.xxxx
 ```
 
+`git clone https://github.com/ismailhakkituran/dbms-lab-nosql.git` komutu ile şablonu çalışma dizininize kopyalayıp, `idea .` IDE kullanarak proje şeklinde açabilirsiniz.
 **(\*)** Deney kapsamında verilen bu çalışmayı hayal gücünüzle geliştirip, CV' nize eklemeniz tavsiye edilir.
 
 
