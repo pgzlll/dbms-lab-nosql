@@ -2,8 +2,9 @@
 package app.store;
 
 import com.hazelcast.client.HazelcastClient;
+import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.core.HazelcastInstance;
-import com.hazelcast.core.IMap;
+import com.hazelcast.map.IMap;
 import app.model.Student;
 
 public class HazelcastStore {
@@ -11,7 +12,13 @@ public class HazelcastStore {
     static IMap<String, Student> map;
 
     public static void init() {
-        hz = HazelcastClient.newHazelcastClient(); // config dosyasına bağlanır
+        ClientConfig config = new ClientConfig();
+        config.setClusterName("dev");
+
+        config.getNetworkConfig().addAddress("127.0.0.1:5701");
+
+        hz = HazelcastClient.newHazelcastClient(config); // config dosyasına bağlanır
+
         map = hz.getMap("ogrenciler");
         for (int i = 0; i < 10000; i++) {
             String id = "2025" + String.format("%06d", i);
